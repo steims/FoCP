@@ -1,0 +1,205 @@
+// Fundamentals of Computer Programming
+
+#include <iostream>
+#include <cmath>
+
+int main()
+{
+    // ---------------------------------------------------------
+    // TASK 1: Dice Simulation with switch statement
+    //
+    // Write a program that:
+    //  - Asks the user to enter a number between 1 and 6.
+    //  - Uses a switch statement to print that many stars (*).
+    //  - If the number is outside the range, print "Invalid input".
+    //
+    // Example:
+    //   Input: 4
+    //   Output: ****
+    //
+    // Hint: use "break" after each case.
+    // ---------------------------------------------------------
+
+
+    /*int a;
+    std::cout << "Enter number between 1 and 6: ";
+    std::cin >> a;
+    switch (a)
+    {
+    case 1:
+        std::cout << "*";
+        break;
+    case 2:
+        std::cout << "**";
+        break;
+    case 3:
+        std::cout << "***";
+        break;
+    case 4:
+        std::cout << "****";
+        break;
+    case 5:
+        std::cout << "*****";
+        break;
+    case 6:
+        std::cout << "******";
+        break;
+    default:
+        std::cout << "Invalid input";
+        break;
+    }*/
+
+
+    // ---------------------------------------------------------
+    // TASK 2: Array Initialization and Printing
+    //
+    // Create an integer array of size 10.
+    //  - Initialize the array so that each element equals its index * 2.
+    //  - Print the array in one line, separated by spaces.
+    //
+    // Example output:
+    //   0 2 4 6 8 10 12 14 16 18
+    //
+    // Hint: use a for loop and array indexing.
+    // ---------------------------------------------------------
+
+
+    /*int array[10];
+    for (int i = 0; i < 10; ++i)
+    {
+        array[i] = i*2;
+        std::cout << array[i] << " ";
+    }*/
+
+
+    // ---------------------------------------------------------
+    // TASK 3: Average of Numbers
+    //
+    // Create an array of 5 doubles.
+    //  - Ask the user to enter 5 numbers.
+    //  - Compute and print the average value.
+    //
+    // Example:
+    //   Input: 5 10 15 20 25
+    //   Output: Average = 15
+    //
+    // Hint: Use a variable to store the running sum.
+    // ---------------------------------------------------------
+
+
+    /*double array[5];
+    double sum = 0.0;
+    std::cout << "Enter number : ";
+        for (int i = 0; i < 5; ++i)
+        {
+            std::cin >> array[i];
+            sum += array[i];
+        }
+        double avg = sum / 5; 
+        std::cout << avg;*/
+
+
+    // ---------------------------------------------------------
+    // TASK 4: Reverse an Array
+    //
+    // Using an integer array of size 6 (with values 1 to 6):
+    //  - Reverse the order of the elements (in-place).
+    //  - Print the array before and after reversing.
+    //
+    // Example:
+    //   Before: 1 2 3 4 5 6
+    //   After:  6 5 4 3 2 1
+    //
+    // Hint: use a while loop and swap elements.
+    // ---------------------------------------------------------
+
+
+    /*int array[6] = { 1, 2, 3, 4, 5, 6 };
+    for (int i = 0; i < 6; ++i)
+    {
+        std::cout << array[i] << " ";
+    }
+    std::cout << std::endl;
+    int start = 0;
+    int end = 5;
+    while (start < end)
+    {
+        int temp = array[start];
+        array[start] = array[end];
+        array[end] = temp;
+        start++;
+        end--;
+    }
+    for (int i = 0; i < 6; ++i)
+    {
+        std::cout << array[i] << " ";
+    }*/
+        
+
+    // ---------------------------------------------------------
+    // TASK 5: 2D Array – Spiral Filling
+    //
+    // Create a 2D array with 4 rows and 4 columns.
+    // Fill it with numbers 0, 1, 2, ... in a spiral order
+    // (from the outside towards the center).
+    //
+    // Example (4x4):
+    //   0   1   2   3
+    //  11  12  13   4
+    //  10  15  14   5
+    //   9   8   7   6
+    //
+    // Hint:
+    //   - Use variables for top, bottom, left, right boundaries.
+    //   - Decrease the boundaries as you fill the array.
+    // ---------------------------------------------------------
+
+
+    const int n = 4;
+    int array[n][n];
+    int value = 0;
+    int top = 0, bottom = n - 1;
+    int left = 0, right = n - 1;
+
+    while (top <= bottom && left <= right)
+    {
+        for (int i = left; i <= right; ++i)
+        {
+            array[top][i] = value++;
+            
+        }top++;
+        for (int i = top; i <= bottom; ++i)
+        {
+            array[i][right] = value++;
+            
+        }right--;
+        if (top <= bottom)
+        {
+            for (int i = right; i >= left; --i)
+        {
+            array[bottom][i] = value++;
+            
+        }bottom--;
+        }
+        if (left <= right)
+        {
+            for (int i = bottom; i >= top; --i)
+        {
+            array[i][left] = value++;
+            
+        }left++;
+        }
+        
+    }
+
+    for (int i = 0; i < n; ++i)
+    {
+        for (int j = 0; j < n; ++j)
+        {
+            std::cout << array[i][j] << '\t';
+        }
+        std::cout << std::endl;
+    }
+
+    return 0;
+}

@@ -1,0 +1,9 @@
+﻿  Lab04.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.44.35207\include\numbers(11): warning STL4038: The contents of <numbers> are available only with C++20 or later.
+C:\Users\Admin\source\repos\Lab04\Lab04.cpp(120,86): warning C4244: "argument": konwersja z "_Rep" do "unsigned int", możliwa utrata danych
+C:\Users\Admin\source\repos\Lab04\Lab04.cpp(120,86): warning C4244:         with
+C:\Users\Admin\source\repos\Lab04\Lab04.cpp(120,86): warning C4244:         [
+C:\Users\Admin\source\repos\Lab04\Lab04.cpp(120,86): warning C4244:             _Rep=std::chrono::system_clock::rep
+C:\Users\Admin\source\repos\Lab04\Lab04.cpp(120,86): warning C4244:         ]
+C:\Users\Admin\source\repos\Lab04\Lab04.cpp(185,14): warning C4566: znak przedstawiony przez nazwę zawierającą znaki uniwersalne "\u03C0" nie może być przedstawiony w bieżącej stronie kodowej (1250)
+  Lab04.vcxproj -> C:\Users\Admin\source\repos\Lab04\x64\Debug\Lab04.exe

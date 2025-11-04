@@ -8,10 +8,9 @@ int main()
 		for (int j = 1; j < 10; ++j)
 		{
 			sudoku[i][j] = rand() %9 + 1;
-			cout << sudoku[i][j] << "\t" << endl;
+			cout << sudoku[i][j] << " ";
 		}
 		cout << endl;
 	}
 	return 0;
 }
-

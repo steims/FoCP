@@ -178,6 +178,7 @@ int main()
    print_stars_advanced(5, '#');
    print_stars_advanced(8, '*');
    print_stars_advanced(2, '$');
+   cout << endl;
    
    // TASK 3 test
     
@@ -209,3 +210,4 @@ int main()
   Practice makes progress — not perfection.
 
 */
+

@@ -152,7 +152,7 @@ double estimate_pi(int shots)
    - Then, test it in main() with several examples.
 */
 
-double minimum(double a, double b) {
+inline double minimum(double a, double b) {
     return (a < b) ? a : b;
 }
 
@@ -210,4 +210,5 @@ int main()
   Practice makes progress — not perfection.
 
 */
+
 

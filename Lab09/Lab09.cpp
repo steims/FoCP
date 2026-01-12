@@ -151,5 +151,33 @@ int main()
 
 
 
+    //task6
+    std::cout << "--- Task 6 ---" << std::endl;
+
+    computer myPC = { "Dell", "XPS 15", {"Intel", "Core i7", 3.8} };
+
+    std::cout << "Computer: " << myPC.brand << " " << myPC.model << std::endl;
+    std::cout << "CPU: " << myPC.cpu.manufacturer << " " << myPC.cpu.model
+        << " @ " << myPC.cpu.speedGHz << "GHz" << std::endl;
+    std::cout << std::endl;
+
+
+    //task7
+    std::cout << "--- Task 7 ---" << std::endl;
+    std::string text = "programming is fun and challenging";
+    std::map<char, int> frequency;
+
+    for (char c : text) {
+        if (c != ' ') {
+            frequency[c]++;
+        }
+    }
+
+    std::cout << "Character counts:" << std::endl;
+    for (const auto& pair : frequency) {
+        std::cout << "'" << pair.first << "': " << pair.second << "  ";
+    }
+    std::cout << std::endl;
+
     return 0;
 }

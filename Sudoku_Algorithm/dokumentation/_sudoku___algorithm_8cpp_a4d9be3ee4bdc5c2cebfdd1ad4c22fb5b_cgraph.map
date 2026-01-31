@@ -1,0 +1,10 @@
+<map id="playManual" name="playManual">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,56,93,83"/>
+<area shape="rect" id="Node000002" href="$_sudoku___algorithm_8cpp.html#aaa4e1424aae6da7c310ad9acef5eaac6" title=" " alt="" coords="145,5,216,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,53,133,36,129,39,87,58"/>
+<area shape="rect" id="Node000003" href="$_sudoku___algorithm_8cpp.html#ab0d717b6b08ba190d2abfe5775559818" title=" " alt="" coords="269,31,360,57"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="93,63,254,47,253,52,94,68"/>
+<area shape="rect" id="Node000004" href="$_sudoku___algorithm_8cpp.html#a29c7931f118ec4bbc8500ca516c6b792" title=" " alt="" coords="141,107,221,133"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="86,81,132,100,127,101,86,86"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="217,23,256,32,251,33,217,28"/>
+</map>

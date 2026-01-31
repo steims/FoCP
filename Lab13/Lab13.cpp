@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <cstring>
+#include <iomanip>
 
 /* TASK 1: Create and Use unique_ptr
    Write a function that creates a unique_ptr to an integer, sets its value
@@ -22,11 +23,10 @@ std::unique_ptr<int> create_unique(int value) {
    Example: If input unique_ptr contains 50, output should contain 150
 */
 std::unique_ptr<int> add_hundred(std::unique_ptr<int> ptr) {
-    // TODO: Add 100 to the value and return the unique_ptr
     if (ptr) {
         *ptr += 100;
     }
-    return ptr; // Replace with actual unique_ptr
+    return ptr;
 }
 
 /* TASK 3: Create Dynamic Array with unique_ptr
@@ -36,13 +36,12 @@ std::unique_ptr<int> add_hundred(std::unique_ptr<int> ptr) {
    Example: create_array(4) should return array {0.0, 2.5, 5.0, 7.5}
 */
 std::unique_ptr<double[]> create_array(std::size_t size) {
-    // TODO: Create unique_ptr array and initialize elements
     auto arr = std::make_unique<double[]>(size);
     for (std::size_t i = 0; i < size; ++i)
     {
         arr[i] = i * 2.5;
     }
-    return arr; // Replace with actual unique_ptr
+    return arr;
 }
 
 /* TASK 4: Shared Ownership with shared_ptr
@@ -54,9 +53,12 @@ std::unique_ptr<double[]> create_array(std::size_t size) {
             all pointing to 99, use_count should be 3
 */
 std::vector<std::shared_ptr<int>> create_shared(int value) {
-    // TODO: Create shared_ptr and make 3 copies in a vector
     std::vector<std::shared_ptr<int>> ptrs;
-    return ptrs; // Replace with actual vector
+    auto shared = std::make_shared<int>(value);
+    ptrs.push_back(shared);
+    ptrs.push_back(shared);
+    ptrs.push_back(shared);
+    return ptrs;
 }
 
 /* TASK 5: Custom strlen Implementation
@@ -66,8 +68,11 @@ std::vector<std::shared_ptr<int>> create_shared(int value) {
    Example: my_string_length("Hello") should return 5
 */
 int my_string_length(const char* str) {
-    // TODO: Calculate string length using pointer arithmetic
-    return 0; // Replace with actual length
+    const char* start = str;
+    while (*str != '\0') {
+        str++;
+    }
+    return static_cast<int>(str - start);
 }
 
 /* TASK 6: Custom strcpy Implementation
@@ -77,7 +82,12 @@ int my_string_length(const char* str) {
    Example: my_string_copy(dest, "Copy") copies "Copy" to dest
 */
 void my_string_copy(char* destination, const char* source) {
-    // TODO: Copy string using pointer arithmetic
+    while (*source != '\0') {
+        *destination = *source;
+        destination++;
+        source++;
+    }
+    *destination = '\0';
 }
 
 /* TASK 7: Custom strcat Implementation
@@ -88,7 +98,15 @@ void my_string_copy(char* destination, const char* source) {
             result should be "Hello World" in dest
 */
 void my_string_concat(char* destination, const char* source) {
-    // TODO: Find end of destination and append source
+    while (*destination != '\0') {
+        destination++;
+    }
+    while (*source != '\0') {
+        *destination = *source;
+        destination++;
+        source++;
+    }
+    *destination = '\0';
 }
 
 /* TASK 8: Count Words in C-String
@@ -98,15 +116,27 @@ void my_string_concat(char* destination, const char* source) {
    Example: count_words("Hello  World  C++") should return 3
 */
 int count_words(const char* str) {
-    // TODO: Count words separated by spaces
-    return 0; // Replace with actual count
+    int count = 0;
+    bool in_word = false;
+    while (*str != '\0') {
+        if (*str != ' ') {
+            if (!in_word) {
+                count++;
+                in_word = true;
+            }
+        }
+        else {
+            in_word = false;
+        }
+        str++;
+    }
+    return count;
 }
 
 /* MAIN FUNCTION - Test Your Solutions */
 int main() {
     // Test TASK 1
     std::cout << "TASK 1: Create unique_ptr\n";
-    // TODO: Test create_unique function
     std::unique_ptr<int> uPtr = create_unique(42);
     if (uPtr)
     {
@@ -116,7 +146,6 @@ int main() {
 
     // Test TASK 2
     std::cout << "TASK 2: Transfer Ownership\n";
-    // TODO: Test add_hundred function
     std::unique_ptr<int> ptr = create_unique(50);
     ptr = add_hundred(std::move(ptr));
     std::cout << "Value: " << *ptr << std::endl;
@@ -125,7 +154,6 @@ int main() {
 
     // Test TASK 3
     std::cout << "TASK 3: Create Dynamic Array\n";
-    // TODO: Test create_array function
     std::size_t size = 4.0;
     auto arrPtr = create_array(size);
     std::cout << "Array valuse : ";
@@ -133,36 +161,41 @@ int main() {
     {
         std::cout << arrPtr[i] << " ";
     }
-
+    std::cout << "\n";
     std::cout << "\n";
 
     // Test TASK 4
     std::cout << "TASK 4: Shared Ownership\n";
-    // TODO: Test create_shared function and print use_count
-
+    auto sharedVec = create_shared(99);
+    if (!sharedVec.empty()) {
+        std::cout << "Value: " << *sharedVec[0] << "\n";
+        std::cout << "Use count: " << sharedVec[0].use_count() << "\n";
+    }
     std::cout << "\n";
 
     // Test TASK 5
     std::cout << "TASK 5: Custom strlen\n";
-    // TODO: Test my_string_length function
+    std::cout << "Length: " << my_string_length("Hello") << "\n";
 
     std::cout << "\n";
 
     // Test TASK 6
     std::cout << "TASK 6: Custom strcpy\n";
-    // TODO: Test my_string_copy function
+    char destBuffer[50];
+    my_string_copy(destBuffer, "Copy");
+    std::cout << destBuffer << "\n\n";
 
-    std::cout << "\n";
 
     // Test TASK 7
     std::cout << "TASK 7: Custom strcat\n";
-    // TODO: Test my_string_concat function
+    my_string_copy(destBuffer, "Hello");
+    my_string_concat(destBuffer, " World");
+    std::cout << destBuffer << "\n\n";
 
-    std::cout << "\n";
 
     // Test TASK 8
     std::cout << "TASK 8: Count Words\n";
-    // TODO: Test count_words function
+    std::cout << "Words: " << count_words("Hello  World  C++") << "\n";
 
     return 0;
 }
